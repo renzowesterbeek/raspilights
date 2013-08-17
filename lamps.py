@@ -1,6 +1,7 @@
 #!/usr/bin/python -tt
 # Home automation lamps        #
 #                              #
+# Python version 2.7           #
 # By Renzo Westerbeek (c) 2013 #
 
 # Dictionary of lamps #
@@ -15,7 +16,7 @@ lamps = {
 
 # Function that prints out all items in dic "lamps" #
 def printOut():
-    print "Your lamps (%d):" %
+    print "Your lamps (" + str(len(lamps)) + "):"
     for items in lamps:
         print items
     print ""
@@ -43,19 +44,27 @@ def chooseFunction():
     
     # Converts input of user
     if choice == "add":
-        print "Adds lamp"
+        addLamp()
     elif choice == "del":
-        print "Deletes lamp"
+        deleteLamp()
     else:
         # Changes status of lamp
-        changeSettings()
+        settingsLamp()
 
 # Asks for user input #
-def changeSettings():
+def settingsLamp():
     print "Change your settings:"
     lamp = raw_input("lamp: ")
     status = raw_input("on/off: ")
     switch(status, lamp)
+
+def deleteLamp():
+	print "Wich lamp to delete? "
+	# lamp = raw_input("lamp: ")
+
+def addLamp():
+	print "Wich lamp do you want to add? "
+	# lamp = raw_input("lamp: ")
 
 # Displays status of lamps #
 def printStatus():
