@@ -12,7 +12,10 @@ lamps = {
 
 #####
 ######################
+# Defines functions
+######################
 #####
+
 
 # Function that prints out all items in dic "lamps" #
 def printOut():
@@ -39,7 +42,7 @@ def switch(status, lamp):
 # Chooses what to do #
 def chooseFunction():
     # Checks input of user
-    choice = raw_input("Add, del or change a lamp?")
+    choice = raw_input("Add, del or change a lamp? ")
     choice = choice.lower()
     
     # Converts input of user
@@ -58,13 +61,21 @@ def settingsLamp():
     status = raw_input("on/off: ")
     switch(status, lamp)
 
+# Deletes the lamp if it exists #
 def deleteLamp():
 	print "Wich lamp to delete? "
-	# lamp = raw_input("lamp: ")
+	lamp = raw_input("lamp: ")
+	if lamp in lamps:
+		del lamps[lamp]
+		print "Lamp deleted"
+	else:
+		print "This lamp doesn't exists..."
 
+# Adds a new lamp #
 def addLamp():
 	print "Wich lamp do you want to add? "
-	# lamp = raw_input("lamp: ")
+	lamp = raw_input("lamp: ")
+	lamps[lamp] = 0
 
 # Displays status of lamps #
 def printStatus():
@@ -76,6 +87,8 @@ def printStatus():
             print items + ": on"
     
 #####
+######################
+# Calls all defined functions
 ######################
 #####
 
